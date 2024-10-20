@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Argesta";
+  src: url("/fonts/Argesta.otf");
+}
+
+@font-face {
+  font-family: "Kenfolg";
+  src: url("/fonts/Kenfolg.otf");
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
