@@ -70,7 +70,12 @@ const Navbar = () => {
     <div className="lg:flex md:flex hidden justify-center items-center flex-col gap-y-0 w-full">
       <nav className="flex justify-between items-center w-full bg-white text-black lg:px-16 lg:py-10">
         <div>
-          <ul className="flex justify-center items-center lg:gap-x-3">
+          <motion.ul
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut", delay: 0.4 }}
+            className="flex justify-center items-center lg:gap-x-3"
+          >
             {socialLinks.map((social, idx) => (
               <li
                 key={idx}
@@ -81,14 +86,24 @@ const Navbar = () => {
                 </Link>
               </li>
             ))}
-          </ul>
+          </motion.ul>
         </div>
         <Link href="/">
-          <h1 className="font-sugiyama font-thin text-green-950 lg:text-6xl">
+          <motion.h1
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut", delay: 0.6 }}
+            className="font-sugiyama font-thin text-green-950 lg:text-6xl"
+          >
             Dietitian
-          </h1>
+          </motion.h1>
         </Link>
-        <div className="max-w-[180px] flex items-center gap-x-0">
+        <motion.div
+          initial={{ opacity: 0, x: 10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, ease: "easeOut", delay: 0.4 }}
+          className="max-w-[180px] flex items-center gap-x-0"
+        >
           <input
             type="text"
             placeholder="SEARCH..."
@@ -103,15 +118,15 @@ const Navbar = () => {
           <button>
             <SearchIcon className="stroke-[1.5] text-green-950" />
           </button>
-        </div>
+        </motion.div>
       </nav>
       <motion.div
         className={`flex justify-center items-center lg:gap-x-20 w-full bg-white text-black p-2.5 ${
           isSticky ? "fixed top-0 z-50 border-b shadow-md" : ""
         }`}
-        initial={{ opacity: 1 }}
-        animate={{ opacity: isSticky ? 1 : 1 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: isSticky ? 1 : 1, y: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut", delay: 1 }}
       >
         {searchContents
           .filter((content) => {

@@ -1,18 +1,61 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useAnimation, motion } from "framer-motion";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 const FAQHome = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.2 });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [inView, controls]);
+
+  const bgVariant = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut", delay: 0.6 },
+    },
+  };
+
+  const headingVariant = {
+    hidden: { opacity: 0, y: -30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "backOut", delay: 1 },
+    },
+  };
+
+  const accordianVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "backOut", delay: 1.2 },
+    },
+  };
   return (
     <div
-      id="about"
+      ref={ref}
       className="relative w-full h-screen flex justify-center items-center flex-col gap-y-6 text-green-950 lg:p-16 mt-10"
     >
-      <div
+      <motion.div
+        initial="hidden"
+        animate={controls}
+        variants={bgVariant}
         style={{ backgroundImage: "url('/images/food-bg-1.jpg')" }}
         className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 
                        opacity-50 lg:backdrop-blur-sm backdrop-blur-md"
@@ -20,12 +63,21 @@ const FAQHome = () => {
 
       <div className="relative z-10 flex justify-center items-center h-full">
         <div className="lg:w-[80%] w-[88%] flex justify-center items-center flex-col gap-y-10">
-          <h1 className="font-unbounded font-semibold text-2xl lg:text-4xl text-center">
+          <motion.h1
+            initial="hidden"
+            animate={controls}
+            variants={headingVariant}
+            className="font-unbounded font-semibold text-2xl lg:text-4xl text-center"
+          >
             Frequently Asked Questions
-          </h1>
-          <div>
+          </motion.h1>
+          <motion.div
+            initial="hidden"
+            animate={controls}
+            variants={accordianVariant}
+          >
             <AccordianForFaq />
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

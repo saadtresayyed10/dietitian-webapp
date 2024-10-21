@@ -48,9 +48,21 @@ const MobileNavbar = () => {
       className="flex lg:hidden justify-between items-center w-full p-8 bg-white text-green-950 z-50"
     >
       <Link href="/">
-        <h1 className="text-4xl text-green-950 font-sugiyama">Dietitian</h1>
+        <motion.h1
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, ease: "easeOut", delay: 0.4 }}
+          className="text-4xl text-green-950 font-sugiyama"
+        >
+          Dietitian
+        </motion.h1>
       </Link>
-      <div className="flex items-center gap-x-3">
+      <motion.div
+        initial={{ opacity: 0, x: 10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut", delay: 0.6 }}
+        className="flex items-center gap-x-3"
+      >
         <MobileMenu />
         <button>
           <Link
@@ -60,7 +72,7 @@ const MobileNavbar = () => {
             Blog
           </Link>
         </button>
-      </div>
+      </motion.div>
     </motion.div>
   );
 };
