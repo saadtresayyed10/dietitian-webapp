@@ -45,21 +45,21 @@ const MobileNavbar = () => {
           : {}
       }
       transition={{ duration: 0.3 }}
-      className="flex lg:hidden justify-between items-center w-full p-8"
+      className="flex lg:hidden justify-between items-center w-full p-8 bg-white text-green-950 z-50"
     >
       <Link href="/">
         <h1 className="text-4xl text-green-950 font-sugiyama">Dietitian</h1>
       </Link>
       <div className="flex items-center gap-x-3">
+        <MobileMenu />
         <button>
           <Link
             href="/blog"
-            className="px-4 py-1.5 bg-green-950 rounded-md shadow text-base text-neutral-200 font-argesta"
+            className="px-4 py-1.5 bg-green-950 rounded-md shadow text-sm font-medium text-neutral-200 font-argesta"
           >
             Blog
           </Link>
         </button>
-        <MobileMenu />
       </div>
     </motion.div>
   );

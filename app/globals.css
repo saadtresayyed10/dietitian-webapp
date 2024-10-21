@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  scroll-behavior: smooth;
+}
+
 @font-face {
   font-family: "Argesta";
   src: url("/fonts/Argesta.otf");
@@ -10,6 +14,11 @@
 @font-face {
   font-family: "Sugiyama";
   src: url("/fonts/Sugiyama.ttf");
+}
+
+@font-face {
+  font-family: "Unbounded";
+  src: url("/fonts/Unbounded.ttf");
 }
 
 body {
