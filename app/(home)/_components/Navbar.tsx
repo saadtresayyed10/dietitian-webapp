@@ -88,13 +88,13 @@ const Navbar = () => {
             Dietitian
           </h1>
         </Link>
-        <div className="max-w-[200px] flex items-center gap-x-0">
+        <div className="max-w-[180px] flex items-center gap-x-0">
           <input
             type="text"
-            placeholder="Search..."
+            placeholder="SEARCH..."
             className="
-    p-2 bg-transparent outline-none
-    border-0 border-b border-green-950 focus:border-b-2 focus:border-green-950 
+    p-2 bg-transparent outline-none max-w-[150px]
+    border-0 focus:border-b focus:border-green-950 
     placeholder-gray-400 font-argesta
     focus:ring-0 text-black
   "
