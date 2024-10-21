@@ -59,7 +59,7 @@ const config: Config = {
     },
     fontFamily: {
       argesta: ["Argesta"],
-      kenfolg: ["Kenfolg"],
+      sugiyama: ["Sugiyama"],
     },
   },
   plugins: [require("tailwindcss-animate")],
